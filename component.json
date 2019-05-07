@@ -1,0 +1,304 @@
+{
+    "title": "Recommendations API Client",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/web-Recommendations/2018-02-01/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Recommendations_List": {
+            "main": "./lib/actions/Recommendations_List.js",
+            "title": "List all recommendations for a subscription.",
+            "description": "List all recommendations for a subscription.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Recommendations_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Recommendations_ResetAllFilters": {
+            "main": "./lib/actions/Recommendations_ResetAllFilters.js",
+            "title": "Reset all recommendation opt-out settings for a subscription.",
+            "description": "Reset all recommendation opt-out settings for a subscription.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Recommendations_ResetAllFilters.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Recommendations_DisableRecommendationForSubscription": {
+            "main": "./lib/actions/Recommendations_DisableRecommendationForSubscription.js",
+            "title": "Disables the specified rule so it will not apply to a subscription in the future.",
+            "description": "Disables the specified rule so it will not apply to a subscription in the future.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Recommendations_DisableRecommendationForSubscription.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Recommendations_ListHistoryForHostingEnvironment": {
+            "main": "./lib/actions/Recommendations_ListHistoryForHostingEnvironment.js",
+            "title": "Get past recommendations for an app, optionally specified by the time range.",
+            "description": "Get past recommendations for an app, optionally specified by the time range.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Recommendations_ListHistoryForHostingEnvironment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Recommendations_ListRecommendedRulesForHostingEnvironment": {
+            "main": "./lib/actions/Recommendations_ListRecommendedRulesForHostingEnvironment.js",
+            "title": "Get all recommendations for an app.",
+            "description": "Get all recommendations for an app.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Recommendations_ListRecommendedRulesForHostingEnvironment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Recommendations_DisableAllForHostingEnvironment": {
+            "main": "./lib/actions/Recommendations_DisableAllForHostingEnvironment.js",
+            "title": "Disable all recommendations for an app.",
+            "description": "Disable all recommendations for an app.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Recommendations_DisableAllForHostingEnvironment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Recommendations_ResetAllFiltersForHostingEnvironment": {
+            "main": "./lib/actions/Recommendations_ResetAllFiltersForHostingEnvironment.js",
+            "title": "Reset all recommendation opt-out settings for an app.",
+            "description": "Reset all recommendation opt-out settings for an app.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Recommendations_ResetAllFiltersForHostingEnvironment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Recommendations_GetRuleDetailsByHostingEnvironment": {
+            "main": "./lib/actions/Recommendations_GetRuleDetailsByHostingEnvironment.js",
+            "title": "Get a recommendation rule for an app.",
+            "description": "Get a recommendation rule for an app.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Recommendations_GetRuleDetailsByHostingEnvironment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Recommendations_DisableRecommendationForHostingEnvironment": {
+            "main": "./lib/actions/Recommendations_DisableRecommendationForHostingEnvironment.js",
+            "title": "Disables the specific rule for a web site permanently.",
+            "description": "Disables the specific rule for a web site permanently.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Recommendations_DisableRecommendationForHostingEnvironment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Recommendations_ListHistoryForWebApp": {
+            "main": "./lib/actions/Recommendations_ListHistoryForWebApp.js",
+            "title": "Get past recommendations for an app, optionally specified by the time range.",
+            "description": "Get past recommendations for an app, optionally specified by the time range.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Recommendations_ListHistoryForWebApp.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Recommendations_ListRecommendedRulesForWebApp": {
+            "main": "./lib/actions/Recommendations_ListRecommendedRulesForWebApp.js",
+            "title": "Get all recommendations for an app.",
+            "description": "Get all recommendations for an app.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Recommendations_ListRecommendedRulesForWebApp.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Recommendations_DisableAllForWebApp": {
+            "main": "./lib/actions/Recommendations_DisableAllForWebApp.js",
+            "title": "Disable all recommendations for an app.",
+            "description": "Disable all recommendations for an app.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Recommendations_DisableAllForWebApp.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Recommendations_ResetAllFiltersForWebApp": {
+            "main": "./lib/actions/Recommendations_ResetAllFiltersForWebApp.js",
+            "title": "Reset all recommendation opt-out settings for an app.",
+            "description": "Reset all recommendation opt-out settings for an app.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Recommendations_ResetAllFiltersForWebApp.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Recommendations_GetRuleDetailsByWebApp": {
+            "main": "./lib/actions/Recommendations_GetRuleDetailsByWebApp.js",
+            "title": "Get a recommendation rule for an app.",
+            "description": "Get a recommendation rule for an app.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Recommendations_GetRuleDetailsByWebApp.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Recommendations_DisableRecommendationForSite": {
+            "main": "./lib/actions/Recommendations_DisableRecommendationForSite.js",
+            "title": "Disables the specific rule for a web site permanently.",
+            "description": "Disables the specific rule for a web site permanently.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Recommendations_DisableRecommendationForSite.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
